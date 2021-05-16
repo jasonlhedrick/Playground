@@ -18,7 +18,10 @@ let weaponsList = [
     },
 ];
 
-function pickupItem(id) {
+function findItemByID(id) {
+    if (isNaN(id)) throw 'Error: Item ID is not a number.';
+    if (id < 0) throw 'Error: Item ID is less than zero.';
+
     if (id >= 1000) {
         // Search weaponList
         for (let i = 0; i < weaponsList.length; i++) {
@@ -29,8 +32,16 @@ function pickupItem(id) {
     }
 }
 
+function pickupItem(id) {
+    try {
+        const item = findItemByID(id);
+        return item;
+    } catch(e) {
+        console.error(e);
+        return null;
+    }
+}
 
-playerInventory[0] = pickupItem(1050);
-
+playerInventory[0] = pickupItem(1150);
 
 console.log(playerInventory);
