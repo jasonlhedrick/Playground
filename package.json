@@ -5,6 +5,7 @@
   "author": "Jason Hedrick <jasonleehedrick@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "sqlite3": "^5.0.2"
   }
 }

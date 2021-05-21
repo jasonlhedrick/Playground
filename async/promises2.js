@@ -54,12 +54,22 @@ async function test2() {
     });
 }
 
+function cb(err, rows) {
+    //if(err) throw err;
+    return rows;
+}
+
+function getMessages() {
+    db.all(`SELECT message FROM greetings`, cb);
+}
+
 async function blah() {
     console.log(await test());
     console.log(await test2());
 }
 
 blah();
+console.log(getMessages());
 /*
 db.close((err) => {
     if (err) {
