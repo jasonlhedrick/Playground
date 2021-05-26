@@ -13,14 +13,18 @@
         <nav id="mainMenu">
             <ul>
                 <li><a href="layout1.html">Go to sites home page.</a></li>
-                <li><a href="#">Example link 2 set to hash</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Example link 2</a></li>
+                <li><a href="#">Example Link 3</a></li>
+                <li><a href="#">Login example Link 4</a></li>
                 <li><a href="#">Register Account example link</a></li>
-                <li>Font size:</li>
-                <li><button id="reduceFont">-</button></li>
-                <li><button id="increaseFont">+</button></li>
-                <li><button id="resetFontSize">Reset</button></li>
+                <div id="mainMenuFontSizeButtons">
+                    <ul>
+                        <li>Font size:</li>
+                        <li><button id="reduceFont">-</button></li>
+                        <li><button id="increaseFont">+</button></li>
+                        <li><button id="resetFontSize">Reset</button></li>
+                    </ul>
+                </div>
             </ul>
         </nav>
     </header>
@@ -35,8 +39,8 @@
         const mainMenu = document.getElementById('mainMenu');
 
         /* Other variable declarations */
-        const defaultFontSize = 1.5;
-        let currentFontSize = 1.5;
+        const defaultFontSize = 1.2;
+        let currentFontSize = defaultFontSize;
 
         /* Event listeners */
         reduceFontBtn.addEventListener('click', (e) => {
