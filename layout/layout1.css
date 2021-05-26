@@ -1,6 +1,7 @@
 /* Remember! Mobile first design. */
 :root {
-  --backgroundColor: hsla(100, 0%, 75%, 0.2);
+  --backgroundColor: hsla(0, 0%, 75%, 0.2);
+  --hoverColor: hsl(0, 0%, 0%, 0.75);
 }
 
 * {
@@ -40,11 +41,12 @@ h1 {
 #mainMenu a:hover {
   border: 1px solid black;
   color: white;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--hoverColor);
 }
 #mainMenu button {
-  min-width: 50px;
-  min-height: 50px;
+  font-size: 1.2rem;
+  min-width: 60px;
+  min-height: 60px;
   border: 1.5px solid black;
   border-radius: 50%;
   transition-duration: 0.5s;
@@ -52,7 +54,8 @@ h1 {
 }
 #mainMenu button:hover {
   cursor: pointer;
-  background-color: rgba(64, 64, 64, 0.5);
+  color: white;
+  background-color: var(--hoverColor);
 }
 #mainMenu #mainMenuFontSizeButtons {
   list-style-type: none;
