@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding: 1%;
+    text-align: center;
+}
+
+#mainMenu {
+    font-size: 1.5rem;
+}
+
+#mainMenu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+#mainMenu ul li {
+    margin: 10px;
+}

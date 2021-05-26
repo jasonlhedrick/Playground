@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layout1.css">
+    <title>Layout Practice 1</title>
+</head>
+<body>
+    <header>
+        <h1>Page Layout 1</h1>
+        <nav id="mainMenu">
+            <ul>
+                <li><a href="layout1.html">Go to sites home page.</a></li>
+                <li><a href="#">Example link 2 set to hash</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Register Account example link</a></li>
+                <li>Font size:</li>
+                <li><button id="reduceFont">-</button></li>
+                <li><button id="increaseFont">+</button></li>
+                <li><button id="resetFontSize">Reset</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    </main>
+
+    <script type="text/javascript">
+        /* Element selector constants */
+        const reduceFontBtn = document.getElementById('reduceFont');
+        const increaseFontBtn = document.getElementById('increaseFont');
+        const resetFontSizeBtn = document.getElementById('resetFontSize');
+        const mainMenu = document.getElementById('mainMenu');
+
+        /* Other variable declarations */
+        const defaultFontSize = 1.5;
+        let currentFontSize = 1.5;
+
+        /* Event listeners */
+        reduceFontBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentFontSize -= 0.10;
+            if (currentFontSize <= 0) currentFontSize = 0.10;
+            setMainMenuFontSize();
+        });
+
+        increaseFontBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentFontSize += 0.10;
+            setMainMenuFontSize();
+        });
+
+        resetFontSizeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentFontSize = defaultFontSize;
+            setMainMenuFontSize();
+        });
+
+        /* Helper functions */
+        function setMainMenuFontSize() {
+            mainMenu.style.fontSize = `${currentFontSize}rem`;
+        }
+
+    </script>
+</body>
+</html>

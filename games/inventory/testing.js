@@ -25,9 +25,7 @@ function findItemByID(id) {
     if (id >= 1000) {
         // Search weaponList
         for (let i = 0; i < weaponsList.length; i++) {
-            if (weaponsList[i]['id'] === id) {
-                return weaponsList[i];
-            }
+            if (weaponsList[i]['id'] === id) return weaponsList[i];
         }
     }
 }
