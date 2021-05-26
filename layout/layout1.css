@@ -18,12 +18,13 @@ h1 {
 #mainMenu {
   font-size: 1.2rem;
 }
-#mainMenu ul {
+#mainMenu > ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-#mainMenu ul li {
+#mainMenu > ul li {
   margin: 10px;
 }
 #mainMenu button {
@@ -39,8 +40,42 @@ h1 {
   background-color: rgba(64, 64, 64, 0.5);
 }
 #mainMenu #mainMenuFontSizeButtons {
+  list-style-type: none;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: [first-col] 1fr [second-col] 1fr [third-col] 1fr;
+  grid-template-rows: [first-row] 1fr [second-row] 1fr [third-row] 1fr [fifth-row] 1fr [sixth-row] 1fr;
+}
+main .container {
+  border: 4px solid black;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+}
+main #container-1 {
+  grid-column: first-col;
+  grid-row: second-row;
+  grid-row-end: 4;
+}
+main #container-2 {
+  grid-column: second-col;
+  grid-row: first-row;
+  grid-row-end: 3;
+}
+main #container-3 {
+  grid-column: second-col;
+  grid-row: third-row;
+  grid-row-end: 5;
+}
+main #container-4 {
+  grid-column: third-col;
+  grid-row: second-row;
+  grid-row-end: 4;
 }
 
 @media only screen and (min-width: 768px) {

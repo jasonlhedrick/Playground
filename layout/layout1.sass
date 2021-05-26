@@ -19,10 +19,11 @@ h1
 #mainMenu 
     font-size: 1.2rem
 
-    ul
+    > ul
         list-style-type: none
         display: flex
         flex-direction: column
+        align-items: center
 
         li 
             margin: 10px
@@ -40,9 +41,37 @@ h1
         background-color: hsla(50, 0%, 25%, .5)
 
     #mainMenuFontSizeButtons
+        list-style-type: none
         display: flex
-        flex-direction: row
+        flex-wrap: wrap
+        align-items: center
 
+main 
+    display: grid
+    grid-template-columns: [first-col] 1fr [second-col] 1fr [third-col] 1fr
+    grid-template-rows: [first-row] 1fr [second-row] 1fr [third-row] 1fr [fifth-row] 1fr [sixth-row] 1fr
+    .container
+        border: 4px solid black
+        width: 100%
+        height: 100%
+        min-height: 150px
+
+    #container-1
+        grid-column: first-col
+        grid-row: second-row
+        grid-row-end: 4
+    #container-2
+        grid-column: second-col
+        grid-row: first-row
+        grid-row-end: 3
+    #container-3
+        grid-column: second-col
+        grid-row: third-row
+        grid-row-end: 5
+    #container-4
+        grid-column: third-col
+        grid-row: second-row
+        grid-row-end: 4
 @media only screen and (min-width: 768px)
     #mainMenu
         ul

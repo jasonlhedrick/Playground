@@ -12,61 +12,32 @@
         <h1>Page Layout 1</h1>
         <nav id="mainMenu">
             <ul>
+                <ul id="mainMenuFontSizeButtons">
+                    <li>Font size:</li>
+                    <li><button id="reduceFont">-</button></li>
+                    <li><button id="increaseFont">+</button></li>
+                    <li><button id="resetFontSize">Reset</button></li>
+                </ul>
                 <li><a href="layout1.html">Go to sites home page.</a></li>
                 <li><a href="#">Example link 2</a></li>
                 <li><a href="#">Example Link 3</a></li>
                 <li><a href="#">Login example Link 4</a></li>
                 <li><a href="#">Register Account example link</a></li>
-                <div id="mainMenuFontSizeButtons">
-                    <ul>
-                        <li>Font size:</li>
-                        <li><button id="reduceFont">-</button></li>
-                        <li><button id="increaseFont">+</button></li>
-                        <li><button id="resetFontSize">Reset</button></li>
-                    </ul>
-                </div>
             </ul>
         </nav>
     </header>
     <main>
+        <div class="container" id="container-1">1
+        </div>
+        <div class="container" id="container-2">2
+        </div>
+        <div class="container" id="container-3">3
+        </div>
+        <div class="container" id="container-4">4
+        </div>
     </main>
 
-    <script type="text/javascript">
-        /* Element selector constants */
-        const reduceFontBtn = document.getElementById('reduceFont');
-        const increaseFontBtn = document.getElementById('increaseFont');
-        const resetFontSizeBtn = document.getElementById('resetFontSize');
-        const mainMenu = document.getElementById('mainMenu');
+    <script type="text/javascript" src="layout1.js"></script>
 
-        /* Other variable declarations */
-        const defaultFontSize = 1.2;
-        let currentFontSize = defaultFontSize;
-
-        /* Event listeners */
-        reduceFontBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            currentFontSize -= 0.10;
-            if (currentFontSize <= 0) currentFontSize = 0.10;
-            setMainMenuFontSize();
-        });
-
-        increaseFontBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            currentFontSize += 0.10;
-            setMainMenuFontSize();
-        });
-
-        resetFontSizeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            currentFontSize = defaultFontSize;
-            setMainMenuFontSize();
-        });
-
-        /* Helper functions */
-        function setMainMenuFontSize() {
-            mainMenu.style.fontSize = `${currentFontSize}rem`;
-        }
-
-    </script>
 </body>
 </html>
