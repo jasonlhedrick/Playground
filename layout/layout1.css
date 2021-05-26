@@ -1,4 +1,8 @@
 /* Remember! Mobile first design. */
+:root {
+  --backgroundColor: hsla(100, 0%, 75%, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +11,7 @@
 
 body {
   font-size: 1rem;
+  background-color: var(--backgroundColor);
 }
 
 h1 {
@@ -27,13 +32,23 @@ h1 {
 #mainMenu > ul li {
   margin: 10px;
 }
+#mainMenu a {
+  border: 1px solid transparent;
+  padding: 15px;
+  transition-duration: 0.3s;
+}
+#mainMenu a:hover {
+  border: 1px solid black;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+}
 #mainMenu button {
   min-width: 50px;
   min-height: 50px;
   border: 1.5px solid black;
   border-radius: 50%;
   transition-duration: 0.5s;
-  background-color: white;
+  background-color: var(--backgroundColor);
 }
 #mainMenu button:hover {
   cursor: pointer;
@@ -50,12 +65,13 @@ main {
   display: grid;
   grid-template-columns: [first-col] 1fr [second-col] 1fr [third-col] 1fr;
   grid-template-rows: [first-row] 1fr [second-row] 1fr [third-row] 1fr [fifth-row] 1fr [sixth-row] 1fr;
+  grid-gap: 15px;
 }
 main .container {
   border: 4px solid black;
   width: 100%;
   height: 100%;
-  min-height: 150px;
+  min-height: 250px;
 }
 main #container-1 {
   grid-column: first-col;
