@@ -1,7 +1,7 @@
 /* Remember! Mobile first design. */
 :root {
   --backgroundColor: hsla(0, 0%, 75%, 0.2);
-  --hoverColor: hsl(0, 0%, 0%, 0.75);
+  --hoverColor: hsla(0, 0%, 0%, 0.75);
 }
 
 * {
