@@ -1,6 +1,10 @@
+* {
+    margin: 0;
+}
+
 #container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -9,5 +13,5 @@ div {
     min-width: 250px;
     min-height: 250px;
     margin: 15px;
-    border: 1px solid black;
+    border: 2px solid black;
 }

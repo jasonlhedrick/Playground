@@ -11,7 +11,8 @@ function dfs(at) {
     if (visited[at]) return;
     visited[at] = true;
     console.log(visited);
-    let neighbors = graph[at];
+    let left = graph[at+2];
+    console.log(left);
     for (let i = 0; i < n; i++) {
         dfs(i);
     }

@@ -1,0 +1,26 @@
+* {
+    margin: 0 5% 0 5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.2rem;
+    margin-top: 2%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+p {
+    border: 5px solid blanchedalmond;
+    margin: 5px;
+    width: 65ch;
+}
