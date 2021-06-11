@@ -1,3 +1,8 @@
+/** A node for a binary search tree.
+ * @param {int} data The data contained within this node.
+ * @param {pointer} left A pointer to the left node.
+ * @param {pointer} right A pointer to the right node.
+ */
 class Node {
     constructor(data, left = null, right = null) {
         this.data = data;
@@ -6,6 +11,20 @@ class Node {
     }
 }
 
+/** 
+ * A class containing the root node of a BST and required methods.
+ * @method add A method to add data to a BST.
+ * @param {int} data The value to add to the BST.
+ * @method findMin - A method to find the minimum value in the BST.
+ * @method findMax - A method to find the maximum value in the BST.
+ * @method find - A method to find a value and return it's node.
+ * @param {int} data The value to search for.
+ * @returns The node containing the data searched for or null if not found.
+ * @method isPresent - A method to find if a value is inside the BST.
+ * @returns True if the data is present or else false.
+ * @method Remove - A method to remove the specified data from the BST.
+ * @param {int} data The value to remove from the BST.
+ */
 class BST {
     constructor() {
         this.root = null;
@@ -13,37 +32,26 @@ class BST {
 
     add(data) {
         const node = this.root;
-        // If the root node is null that means this tree is empty so add at the head.
+
         if (node === null) {
             this.root = new Node(data);
             return;
         }
-    
-        // Create a recursive function to search through looking for a proper empty space.
         const searchTree = function(node) {
-            // If the data is less than the node.data we're going left.
             if (data < node.data) {
-                // If there isn't a node to the left we create a new node and add it there.
                 if (node.left === null) {
                     node.left = new Node(data);
                     return;
                 }
-                // Else go down a node to the left and do the search again.
                 if (node.left !== null) return searchTree(node.left);
             }
-            // If the data is greater than the node.data we're going right.
             if (data > node.data) {
-                // If there isn't a node to the right than create a new node and add it there.
                 if (node.right === null) {
                     node.right = new Node(data);
                     return;
                 }
-                // Else go down a node to the right and do the search again.
                 if (node.right !== null) return searchTree(node.right);
             }
-            /* Neither data < node.data or data > node.data branch was called meaning
-                This prevents data being added to the BST that's already part of it.
-            */
             else return null;
         }
         return searchTree(node);
@@ -80,24 +88,51 @@ class BST {
 
     isPresent(data) {
         let current = this.root;
-        
         while(current) { 
-            /***************
-                If the data matches up return ASAP
-                If we've run into a null dead end return ASAP.
-                If data is smaller than the current node go left.
-                Otherwise go right.
-            ****************/
             if (data === current.data) return true;
-            if (current ===  null) return false;
             if (data < current.data) current = current.left;
             else current = current.right;
         }
+        return false;
+    }
+    
+    remove(data) {
+        const removeNode = function(node, data) {
+            if (node === null) return null;
+            if (data === node.data) {
+
+                if (node.left === null && node.right === null) return null;
+                if (node.left === null) return node.right;
+                if (node.right === null) return node.left;
+
+                let tempNode = node.right;
+
+                while(tempNode.left !== null) {
+                    tempNode = tempNode.left;
+                }
+                
+                node.data = tempNode.data;
+                node.right = removeNode(node.right, tempNode.data);
+                return node;
+            }
+            if (data < node.data) {
+                node.left = removeNode(node.left, data);
+                return node;
+            } else {
+                node.right = removeNode(node.right, data);
+                return node;
+            }
+        }
+
+        this.root = removeNode(this.root, data);
     }
 }
 
 let myBST = new BST();
 
 myBST.add(1);
+myBST.add(10);
 console.log(myBST.root.data);
-console.log(myBST.isPresent(1));
+console.log(myBST.find(10));
+myBST.remove(10);
+console.log(myBST.isPresent(10));
