@@ -21,7 +21,6 @@ async function createUsersTable() {
 }
 
 async function addUser(user) {
-    // Expects a user object in the form of user.email & user.hash
     user.hash = await hash.hashPass(user.hash);
     db.run(`INSERT INTO users(email, hash) VALUES(?,?)`, [user.email, user.hash], (err, row) => {
         if (err) console.error(err.message);
