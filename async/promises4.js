@@ -41,7 +41,7 @@ async function login(user) {
 
 const  runTest = async () => {
     try {
-        const testLogin = await login({email: 'test@test.com', pass: '123456789'});
+        const testLogin = await login({email: 'a@a.com', pass: 'hello world'});
         console.log(testLogin)
     }
     catch (err) {
